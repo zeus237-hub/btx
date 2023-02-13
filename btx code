@@ -1,0 +1,477 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BTCXEM</title>
+    <link href="/css/bs_min.css" rel="stylesheet" type="text/css">
+    <script src="/js/jquery_min.js"></script>
+    <script src="/js/bs_min.js"></script>
+    <link href="/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <script src="/layui/layui.all.js"></script>
+    <link href="/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <style>
+        .pages a,
+			.pages span {
+				display: inline-block;
+				padding: 2px 5px;
+				margin: 0 1px;
+				border: 1px solid #f0f0f0;
+				-webkit-border-radius: 3px;
+				-moz-border-radius: 3px;
+				border-radius: 3px;
+			}
+			
+			.pages a,
+			.pages li {
+				display: inline-block;
+				list-style: none;
+				text-decoration: none;
+				color: #58A0D3;
+			}
+			
+			.pages a.first,
+			.pages a.prev,
+			.pages a.next,
+			.pages a.end {
+				margin: 0;
+			}
+			
+			.pages a:hover {
+				border-color: #50A8E6;
+			}
+			
+			.pages span.current {
+				background: #50A8E6;
+				color: #FFF;
+				font-weight: 700;
+				border-color: #50A8E6;
+			}
+			textarea{
+			    resize: none;
+			}
+    </style>
+    <script>
+        window.onload = function(){
+            $('input').attr('autocomplete','off')
+        }
+    </script>
+    <title></title>
+  </head>
+  <style>
+        body{
+              background-color: #ededed;
+        }
+        body,html{
+              background-color: #ededed;
+              padding: 0;
+              margin: 0;
+        }
+        h1,h2,h3,h4,h5,h6,h7{margin:0;padding:0}
+        .headerBox{
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 80px;
+            background-color: #7670d9;
+            display: flex;
+            z-index: 99;
+        }
+        .logolefttop{
+            width: 250px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-left-Box{
+            width: 250px;
+            height: calc(100vh - 80px);
+            background-color: #fff;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            z-index: 99;
+        }
+        .bodyBox{
+            width: 100%;
+            height: calc(100vh - 80px);
+            background-color: #ededed;
+            position: fixed;
+            top: 80px;
+            right: 0;
+            z-index: 1;
+            overflow-y: auto;
+            background-image: url(image/4.jpeg);
+            background-repeat:no-repeat;
+            background-size: cover;
+        }
+        .daohangHeader{
+            width: 190px;
+            height: 50px;
+            line-height: 50px;
+            padding-left: 60px;
+            color: #8891b9;
+            font-size: 20px;
+        }
+        .nav-left-Box-List{
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            padding-left: 60px;
+            font-size: 14px;
+            color: #6046ff;
+            -webkit-filter:grayscale(80%);
+            filter:grayscale(80%);
+            cursor: pointer;
+        }
+        .nav-left-Box-List:hover{
+            background-color: #f6f7fb;
+        }
+        .nav-left-Box-List.active{
+            -webkit-filter:grayscale(0%);
+            filter:grayscale(0%);
+            background-color: #f6f7fb;
+        }
+        .headerTouxiangBox{
+            width: calc(100% - 250px - 250px);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding-left: 40px;
+        }
+        .touxiang{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .vipBox{
+            width: 125px;
+            height: 50px;
+            border-radius: 12px;
+            background-color: #ededed;
+            display: flex;
+            align-items: center;
+        }
+        .vipimg{
+            height: 40px;
+            margin-right: 5px;
+        }
+        .header-right-Box{
+            width: 250px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #fff;
+            padding: 0 30px;
+        }
+        .header-right-Box div{
+            width: 50%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-right-Box div img{
+            height: 18px;
+            margin: 0 10px;
+        }
+        .header-right-Box div a{
+            color: #fff;
+        }
+        .vipmobil{
+            display: none;
+        }
+        .right-mobb{
+            display: none;
+            color: #fff;
+        }
+        .menumenu{
+            display: none;
+        }
+        .zhezhaoBox{display:none}
+        .bodyBox iframe{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+        }
+        .loginBox{
+            width: 350px;
+            background-color: #fff;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            -webkit-transform: translate(-50%,-50%);
+            -moz-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+            padding: 50px 50px 20px 50px;
+            box-shadow: rgba(0,0,0,.2) 0 1px 5px 0px;
+        }
+        .tfrow{
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .label{
+            width: 30%;
+            color: #333;
+            flex-shrink: 0;
+            font-size: 14px;
+            text-align: left;
+            font-weight: normal;
+        }
+        .tfrow input{
+            outline: none;
+            flex: 1;
+            width: calc(60% - 10px);
+            border:none;
+            border-bottom:0.5px solid #999;
+            padding-left: 10px;
+        }
+        .dldl{
+            width: 100%;
+            line-height: 30px;
+            text-align: center;
+            color: #fff;
+            background-color: #7670d9;
+            border: none;
+            border-radius: 500px;
+            margin-top: 20px;
+            outline: none;
+        }
+        a{
+            color: #333;
+            font-size: 12px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        a:hover{
+            color: #333;
+        }
+        .tfrow img{
+            width: 34%;
+            height: 40px;
+        }
+        /*移动端样式*/
+      @media only screen and (max-width: 600px) {
+        .logolefttop img{
+            height: 5vw;
+        }
+        .logolefttop{
+            height: 13vw;
+            width: auto;
+            padding: 0 3vw;
+        }
+        .headerTouxiangBox{
+            flex: 1;
+        }
+        .headerBox{
+            height: 13vw;
+        }
+        .header-right-Box{
+            display: none;
+        }
+        .vipBox{
+            display: none;
+        }
+        .headerTouxiangBox{
+            height: 13vw;
+        }
+        .vipmobil{
+            display: block;
+            color: #fff;
+        }
+        .right-mobb{
+            display: block;
+            color: #fff;
+            line-height: 13vw;
+            padding: 0 10px;
+        }
+        .nav-left-Box {
+            width: 250px;
+            height: calc(100vh - 13vw);
+            background-color: #fff;
+            position: fixed;
+            top: 13vw;
+            left: 0;
+        }
+        .menumenu{
+            display: block;
+            height: 5vw;
+            margin: 0 2vw;
+        }
+        .nav-left-Box{
+            left: -250px;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+        .nav-left-Box.active{
+            left: 0px;
+        }
+        .headerTouxiangBox{
+            padding-left: 2vw;
+        }
+        .nameBox{
+            padding: 0 2vw !important;
+        }
+        .touxiang{
+            width: 8vw;
+            height:8vw;
+        }
+        .zhezhaoBox{
+            display: block;
+            position: fixed;
+            top: 13vw;
+            left: 100vw;
+            width: calc(100% - 250px);
+            height: calc(100vh - 13vw);
+            z-index: 99;
+            opacity: 0;
+            background-color: rgba(0,0,0,.5);
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+        .zhezhaoBox.active{
+            display: block;
+            position: fixed;
+            top: 13vw;
+            opacity: 1;
+            left: 250px;
+            width: calc(100% - 250px);
+            height: calc(100vh - 13vw);
+            z-index: 99;
+            background-color: rgba(0,0,0,.3);
+        }
+        .bodyBox{
+            width: 100%;
+            height: calc(100vh - 13vw);
+            background-color: #ededed;
+            position: fixed;
+            top: 13vw;
+            right: 0;
+            z-index: 1;
+            overflow-y: auto;
+        }
+        .bodyBox iframe{
+            width: 100%;
+            height: calc(100vh - 13vw);
+        }
+        .loginBox{
+            width: 85%;
+            background-color: #fff;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            -webkit-transform: translate(-50%,-50%);
+            -moz-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+        }
+      }
+  </style>
+  <body>
+    <div class="headerBox">
+        <div class="logolefttop">
+            <img src="/image/logolefttop.png"/>
+        </div>
+        <div class="headerTouxiangBox">
+                
+        </div>
+    </div>
+    
+    <div class="bodyBox">
+        <div class="loginBox">
+            <div class="tfrow">
+                <div class="label">Account:</div>
+                <input type="text" name="phone" placeholder="Enter username" />
+            </div>
+            <div class="tfrow">
+                <div class="label">Password:</div>
+                <input type="password" name="password" placeholder="Enter password" />
+            </div>
+            <div class="tfrow">
+                <div class="label">Captcha:</div>
+                <input type="text" name="code" placeholder="" style="width:30%"/>
+                <img class="codeimg" src="/image/rand/gen10.png"/>
+            </div> 
+            <span style="color:red; padding-left:2vw"></span>
+            <div class="tfrow">
+                <button type="button" class="dldl" onclick="denglu(this)">Login</button>
+            </div>
+            <div class="tfrow" style="justify-content:space-between">
+                <a href="forgetpass.php">Forgot password?</a>
+                <a href="register.php">Register</a><br />
+            </div>
+          
+    </div>
+    <script>
+        // parent.GetChildValue('login');
+        function denglu(e){
+            var phone = $('input[name="phone"]').val();
+            var password = $('input[name="password"]').val();
+            var code = $('input[name="code"]').val();
+            if(!phone){
+                layer.msg('please fill account');return;
+            }if(!password){
+                layer.msg('Please fill password');return;
+            }if(!code){
+                layer.msg('please fill captcha');return;
+            }if(code != 492){
+                layer.msg('Wrong captcha');
+                location.reload();
+                return;
+            }
+            $(e).attr('disabled','disabled');//提交ajax时禁用按钮 
+            $.ajax({
+                type:"POST",
+                url:"/includes/loginVerif.php",
+                data:{
+                    account:phone,
+                    pwd:password,
+                },
+                //"Result" param in (Operator Object) "success:" catches whatever php echos back.
+                success : function(result)
+                {
+                    location.href="/login.php";
+                    return;
+                    // if( result == 200 )
+                    // {
+                    //     location.href="/login.php";
+                    //     return;
+                    // }
+                    // else
+                    // {
+                    //     layer.msg('Wrong Username or Password');
+                    // }
+                    $(e).removeAttr('disabled');//提交成功时启用按钮
+                }
+            });
+        }
+    </script>
+<!-- <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?353a866ab2e8aa6e4d64074053dac7a1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> -->
+  </body>
+</html>
